@@ -1,0 +1,12 @@
+INSERT INTO TB_CLIENT (name, cpf, income, birth_Date, children) VALUES ('Bernardo Lopes', '94020271062', 30000.00, '2003-12-09', 3);
+INSERT INTO TB_CLIENT (name, cpf, income, birth_Date, children) VALUES ('Kamila Souza', '31309561079', 20000.00, '2001-06-30', 3);
+INSERT INTO TB_CLIENT (name, cpf, income, birth_Date, children) VALUES ('Bárbara Oliveira', '26435284091', 6000.00, '2001-08-15', 5);
+INSERT INTO TB_CLIENT (name, cpf, income, birth_Date, children) VALUES ('Breno Lopes', '25848902089', 2000.00, '2009-04-21', 2);
+INSERT INTO TB_CLIENT (name, cpf, income, birth_Date, children) VALUES ('George Agostino', '63929337002',10000.00, '2003-08-17', 6);
+INSERT INTO TB_CLIENT (name, cpf, income, birth_Date, children) VALUES ('Amanda melo', '49890069091', 9000.00, '2002-06-13', 4);
+INSERT INTO TB_CLIENT (name, cpf, income, birth_Date, children) VALUES ('Luciandro dos santos', '86739322031',   8000.00, '2004-10-19', 4);
+INSERT INTO TB_CLIENT (name, cpf, income, birth_Date, children) VALUES ('Lucia Almada', '00092948057', 4000.00, '2002-06-23', 2);
+INSERT INTO TB_CLIENT (name, cpf, income, birth_Date, children) VALUES ('Augusto Melo', '26237146067', 10000.00, '1990-02-18', 0);
+INSERT INTO TB_CLIENT (name, cpf, income, birth_Date, children) VALUES ('Cristiano Ronaldo', '66130214073', 100000.00, '1995-12-12', 5);
+INSERT INTO TB_CLIENT (name, cpf, income, birth_Date, children) VALUES ('Lionel Messi', '74837801005', 99000.00, '1990-10-10', 6);
+INSERT INTO TB_CLIENT (name, cpf, income, birth_Date, children) VALUES ('Neymar Junior', '66690598098', 80000.00, '1998-06-06', 4);
