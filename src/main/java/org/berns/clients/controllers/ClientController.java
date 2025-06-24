@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -28,6 +25,12 @@ public class ClientController {
     @GetMapping(value = "{id}")
     public ResponseEntity<ClientDTO> findById(@PathVariable Long id){
         ClientDTO client = clientService.findById(id);
+        return ResponseEntity.ok(client);
+    }
+
+    @PostMapping()
+    public ResponseEntity<ClientDTO> save(@RequestBody ClientDTO clientDTO){
+        ClientDTO client = clientService.save(clientDTO);
         return ResponseEntity.ok(client);
     }
 
