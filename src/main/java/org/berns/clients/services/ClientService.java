@@ -1,8 +1,10 @@
 package org.berns.clients.services;
 
+import jakarta.persistence.EntityNotFoundException;
 import org.berns.clients.dto.ClientDTO;
 import org.berns.clients.entities.Client;
 import org.berns.clients.repository.ClientRepository;
+import org.berns.clients.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,7 +26,7 @@ public class ClientService {
     @Transactional(readOnly = true)
     public ClientDTO findById(Long id){
         Client client = clientRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Recurso não encontrado"));
+                .orElseThrow(() -> new ResourceNotFoundException("Recurso não encontrado"));
         return new ClientDTO(client);
     }
 
@@ -38,15 +40,22 @@ public class ClientService {
     }
 
     @Transactional
-    public ClientDTO update(Long id, ClientDTO clientDTO){
-        Client client = clientRepository.getReferenceById(id);
-        client = copyDtoToEntity(client, clientDTO);
-        client = clientRepository.save(client);
-        return new ClientDTO(client);
+    public ClientDTO update(Long id, ClientDTO clientDTO) throws EntityNotFoundException {
+        try {
+            Client client = clientRepository.getReferenceById(id);
+            client = copyDtoToEntity(client, clientDTO);
+            client = clientRepository.save(client);
+            return new ClientDTO(client);
+        } catch (EntityNotFoundException e) {
+            throw new ResourceNotFoundException("Recurso não encontrado");
+        }
     }
 
     @Transactional
     public void delete(Long id){
+        if (!clientRepository.existsById(id)) {
+            throw new ResourceNotFoundException("Recurso não encontrado");
+        }
         clientRepository.deleteById(id);
     }
 

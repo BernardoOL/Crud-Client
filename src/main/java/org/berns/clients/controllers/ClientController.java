@@ -1,5 +1,6 @@
 package org.berns.clients.controllers;
 
+import jakarta.validation.Valid;
 import org.berns.clients.dto.ClientDTO;
 import org.berns.clients.services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,13 +30,13 @@ public class ClientController {
     }
 
     @PostMapping()
-    public ResponseEntity<ClientDTO> save(@RequestBody ClientDTO clientDTO){
+    public ResponseEntity<ClientDTO> save(@Valid @RequestBody ClientDTO clientDTO){
         ClientDTO client = clientService.save(clientDTO);
         return ResponseEntity.ok(client);
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<ClientDTO> update(@PathVariable Long id, @RequestBody ClientDTO clientDTO){
+    public ResponseEntity<ClientDTO> update(@PathVariable Long id, @Valid @RequestBody ClientDTO clientDTO){
         clientDTO = clientService.update(id, clientDTO);
         return ResponseEntity.ok(clientDTO);
     }
